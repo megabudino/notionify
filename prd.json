@@ -41,7 +41,7 @@
         "Script is executable (chmod +x)"
       ],
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "notes": ""
     },
     {

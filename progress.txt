@@ -9,3 +9,12 @@
   - Gotchas encountered: None.
   - Useful context: `notion.css` lives at the repo root for reuse in the script.
 ---
+
+## 2026-01-23 15:11 - US-002
+- Added `notionify.sh` with argument validation, extension checks, and file existence errors.
+- Files changed: `notionify.sh`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: None.
+  - Useful context: The script currently only validates inputs before later pandoc work.
+---
