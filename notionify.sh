@@ -57,21 +57,21 @@ install_package() {
 
   os_name=$(uname)
   case "$os_name" in
-    Darwin)
-      install_package_macos "$package"
-      ;;
-    Linux)
-      if command -v apt-get >/dev/null 2>&1; then
-        install_package_apt "$package"
-      elif command -v yum >/dev/null 2>&1; then
-        install_package_yum "$package"
-      else
-        error_exit "Unsupported Linux package manager."
-      fi
-      ;;
-    *)
-      error_exit "Unsupported OS: $os_name"
-      ;;
+  Darwin)
+    install_package_macos "$package"
+    ;;
+  Linux)
+    if command -v apt-get >/dev/null 2>&1; then
+      install_package_apt "$package"
+    elif command -v yum >/dev/null 2>&1; then
+      install_package_yum "$package"
+    else
+      error_exit "Unsupported Linux package manager."
+    fi
+    ;;
+  *)
+    error_exit "Unsupported OS: $os_name"
+    ;;
   esac
 }
 
