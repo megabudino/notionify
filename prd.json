@@ -1,0 +1,99 @@
+{
+  "project": "Notionify",
+  "branchName": "ralph/notionify",
+  "description": "Bash script that converts Markdown files to Notion-styled PDFs using pandoc",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Create Notion-style CSS file",
+      "description": "As a developer, I need a CSS file that replicates Notion's document styling for PDF output.",
+      "acceptanceCriteria": [
+        "Create notion.css with system font stack (San Francisco, Segoe UI, sans-serif)",
+        "Style headings h1-h6 with Notion-like proportions and weights",
+        "Style paragraphs with appropriate line-height and spacing",
+        "Style code blocks with monospace font and light gray background",
+        "Style inline code with subtle background",
+        "Style blockquotes with left border",
+        "Style tables with borders and alternating row colors",
+        "Style ordered and unordered lists including nested",
+        "Style checkboxes for task lists (- [ ] and - [x])",
+        "Style callout/admonition blocks",
+        "Style horizontal rules",
+        "Style links (blue, underline on hover)",
+        "Style images with optional captions",
+        "Add appropriate page margins for PDF via @media print"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Create basic script with argument validation",
+      "description": "As a user, I want the script to validate my input so I get helpful error messages.",
+      "acceptanceCriteria": [
+        "Create notionify.sh script with shebang",
+        "Accept exactly one argument (markdown filename)",
+        "Show usage instructions if no argument provided",
+        "Error if file doesn't exist in current directory",
+        "Error if file doesn't have .md extension",
+        "Exit code 0 for success, 1 for errors",
+        "Script is executable (chmod +x)"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Add OS detection and pandoc auto-install",
+      "description": "As a user, I want pandoc installed automatically so I don't have to manage dependencies.",
+      "acceptanceCriteria": [
+        "Detect if pandoc is installed using command -v",
+        "Detect OS (macOS vs Linux) using uname",
+        "On macOS: install pandoc via Homebrew (install Homebrew first if needed)",
+        "On Linux: install via apt-get (Debian/Ubuntu) or yum (RHEL/CentOS/Fedora)",
+        "Show informative message during installation",
+        "Exit with error if installation fails",
+        "Also check and install wkhtmltopdf for PDF generation"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Implement PDF conversion workflow",
+      "description": "As a user, I want to run notionify myfile.md and get myfile.pdf with Notion styling.",
+      "acceptanceCriteria": [
+        "Store CSS in ~/.notionify/notion.css (create dir if needed)",
+        "Copy bundled CSS to ~/.notionify/ on first run",
+        "Output PDF has same base name as input (input.md -> input.pdf)",
+        "PDF created in current working directory",
+        "Call pandoc with: pandoc input.md -t html -o output.pdf -c ~/.notionify/notion.css",
+        "Show success message with output filename",
+        "Handle pandoc errors gracefully"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Create GitHub README",
+      "description": "As a potential user, I want clear documentation to install and use the tool.",
+      "acceptanceCriteria": [
+        "Add project title and one-line description",
+        "Add installation instructions (clone, chmod +x)",
+        "Add usage examples with command syntax",
+        "List supported Markdown features",
+        "Add requirements/dependencies section mentioning auto-install",
+        "Add placeholder for example output screenshot",
+        "Add license section (MIT)"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

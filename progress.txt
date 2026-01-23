@@ -1,0 +1,11 @@
+## Codebase Patterns
+- Pandoc task lists use `.task-list` and `.task-list-item` classes for checkbox styling.
+
+## 2026-01-23 15:09 - US-001
+- Created Notion-style CSS covering typography, tables, code, lists, callouts, and print margins.
+- Files changed: `notion.css`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: Pandoc task lists render with `.task-list` wrappers for checkbox styling.
+  - Gotchas encountered: None.
+  - Useful context: `notion.css` lives at the repo root for reuse in the script.
+---
