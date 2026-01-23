@@ -133,7 +133,6 @@ if [ ! -f "$input_file" ]; then
 fi
 
 ensure_dependency "pandoc" "pandoc"
-ensure_dependency "wkhtmltopdf" "wkhtmltopdf"
 
 ensure_css
 

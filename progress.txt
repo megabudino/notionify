@@ -47,3 +47,21 @@
   - Gotchas encountered: None.
   - Useful context: Example output placeholder points to `docs/example-output.png`.
 ---
+
+## 2026-01-23 15:34 - US-001
+- Removed wkhtmltopdf dependency checks so only pandoc is required.
+- Files changed: `notionify.sh`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: `shellcheck` is not available in the environment.
+  - Useful context: Dependency enforcement now only runs for pandoc.
+---
+
+## 2026-01-23 15:35 - US-002
+- Updated Notion CSS palette variables to match light theme colors.
+- Files changed: `notion.css`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
+  - Useful context: Palette tweaks are defined in `:root` custom properties in `notion.css`.
+---

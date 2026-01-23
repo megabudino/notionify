@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 :root {
-  --notion-text: #2f3437;
-  --notion-muted: #6b6f76;
-  --notion-border: #e3e3e3;
+  --notion-text: #37352f;
+  --notion-muted: #787774;
+  --notion-border: #e9e9e7;
   --notion-bg: #ffffff;
-  --notion-code-bg: #f4f5f7;
-  --notion-code-text: #2d2d2d;
+  --notion-code-bg: #f7f6f3;
+  --notion-code-text: #37352f;
   --notion-link: #2b6cb0;
   --notion-table-alt: #fafafa;
-  --notion-quote: #9aa0a6;
+  --notion-quote: #787774;
   --notion-callout-bg: #f7f6f3;
   --notion-callout-border: #e8e6e2;
 }
