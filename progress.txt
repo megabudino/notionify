@@ -83,3 +83,12 @@
   - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
   - Useful context: Manual PDF/browser verification is still needed for UI/CSS changes.
 ---
+
+## 2026-01-23 15:39 - US-005
+- Added print-specific color adjustment and explicit code backgrounds for PDF rendering.
+- Files changed: `notion.css`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
+  - Useful context: Manual PDF/browser verification is still needed for UI/CSS changes.
+---

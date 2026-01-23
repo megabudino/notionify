@@ -257,6 +257,13 @@ figcaption {
 
   body {
     background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  pre,
+  code {
+    background-color: var(--notion-code-bg);
   }
 
   main,
