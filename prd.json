@@ -92,7 +92,7 @@
         "Add license section (MIT)"
       ],
       "priority": 5,
-      "passes": false,
+      "passes": true,
       "notes": ""
     }
   ]

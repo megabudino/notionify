@@ -38,3 +38,12 @@
   - Gotchas encountered: None.
   - Useful context: PDF output uses the input basename in the current directory.
 ---
+
+## 2026-01-23 15:15 - US-005
+- Added project README with installation, usage, requirements, and feature list.
+- Files changed: `README.md`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: None.
+  - Useful context: Example output placeholder points to `docs/example-output.png`.
+---
