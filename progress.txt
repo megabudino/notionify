@@ -65,3 +65,21 @@
   - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
   - Useful context: Palette tweaks are defined in `:root` custom properties in `notion.css`.
 ---
+
+## 2026-01-23 15:36 - US-003
+- Added wrapping rules for code blocks so long lines break in PDFs.
+- Files changed: `notion.css`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
+  - Useful context: Manual PDF/browser verification is still needed for UI/CSS changes.
+---
+
+## 2026-01-23 15:37 - US-004
+- Updated inline code styling with increased padding, tighter radius, and border for better PDF clarity.
+- Files changed: `notion.css`, `prd.json`, `progress.txt`.
+- **Learnings for future iterations:**
+  - Patterns discovered: None.
+  - Gotchas encountered: `shellcheck` is not available in the environment for typecheck verification.
+  - Useful context: Manual PDF/browser verification is still needed for UI/CSS changes.
+---
