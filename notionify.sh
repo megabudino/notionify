@@ -91,6 +91,30 @@ ensure_dependency() {
   fi
 }
 
+ensure_css() {
+  local script_dir
+  local css_dir
+  local bundled_css
+
+  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  css_dir="$HOME/.notionify"
+  bundled_css="$script_dir/notion.css"
+
+  if [ ! -f "$bundled_css" ]; then
+    error_exit "Bundled notion.css not found at $bundled_css"
+  fi
+
+  if [ ! -f "$css_dir/notion.css" ]; then
+    echo "Installing Notion CSS to $css_dir/notion.css"
+    if ! mkdir -p "$css_dir"; then
+      error_exit "Failed to create $css_dir"
+    fi
+    if ! cp "$bundled_css" "$css_dir/notion.css"; then
+      error_exit "Failed to copy notion.css"
+    fi
+  fi
+}
+
 if [ "$#" -ne 1 ]; then
   usage
   exit 1
@@ -111,5 +135,13 @@ fi
 ensure_dependency "pandoc" "pandoc"
 ensure_dependency "wkhtmltopdf" "wkhtmltopdf"
 
-echo "Input validated: $input_file"
+ensure_css
+
+output_file="${input_file%.md}.pdf"
+echo "Generating PDF: $output_file"
+if ! pandoc "$input_file" -t html -o "$output_file" -c "$HOME/.notionify/notion.css"; then
+  error_exit "Pandoc failed to generate PDF."
+fi
+
+echo "Success: created $output_file"
 exit 0
