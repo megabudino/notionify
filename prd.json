@@ -58,7 +58,7 @@
         "Also check and install wkhtmltopdf for PDF generation"
       ],
       "priority": 3,
-      "passes": false,
+      "passes": true,
       "notes": ""
     },
     {
