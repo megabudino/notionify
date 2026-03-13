@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-  echo "Usage: notionify.sh <markdown-file.md>"
+  echo "Usage: notionify.sh [-c <custom.css>] <markdown-file.md>"
 }
 
 error_exit() {
@@ -98,7 +98,7 @@ ensure_css() {
 
   script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   css_dir="$HOME/.notionify"
-  bundled_css="$script_dir/notion.css"
+  bundled_css="$(dirname "$(realpath "$0")")/notion.css"
 
   if [ ! -f "$bundled_css" ]; then
     error_exit "Bundled notion.css not found at $bundled_css"
@@ -114,6 +114,15 @@ ensure_css() {
     fi
   fi
 }
+
+css_file=""
+while getopts ":c:" opt; do
+  case $opt in
+    c) css_file="$OPTARG" ;;
+    *) usage; exit 1 ;;
+  esac
+done
+shift $((OPTIND - 1))
 
 if [ "$#" -ne 1 ]; then
   usage
@@ -134,11 +143,21 @@ fi
 
 ensure_dependency "pandoc" "pandoc"
 
-ensure_css
+if [ -z "$css_file" ]; then
+  ensure_css
+  css_file="$HOME/.notionify/notion.css"
+elif [ ! -f "$css_file" ]; then
+  script_css="$(dirname "$(realpath "$0")")/$css_file"
+  if [ -f "$script_css" ]; then
+    css_file="$script_css"
+  else
+    error_exit "CSS file '$css_file' not found."
+  fi
+fi
 
 output_file="${input_file%.md}.pdf"
 echo "Generating PDF: $output_file"
-if ! pandoc "$input_file" -t html -o "$output_file" -c "$HOME/.notionify/notion.css"; then
+if ! pandoc "$input_file" -t html -o "$output_file" -c "$css_file"; then
   error_exit "Pandoc failed to generate PDF."
 fi
 

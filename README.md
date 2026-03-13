@@ -19,6 +19,14 @@ chmod +x notionify.sh
 
 This generates `your-file.pdf` in the current directory.
 
+### Custom CSS
+
+Use the `-c` flag to apply your own stylesheet instead of the bundled Notion theme:
+
+```bash
+./notionify.sh -c my-style.css your-file.md
+```
+
 ## Supported Markdown Features
 
 - Headings (h1-h6)
@@ -36,10 +44,6 @@ This generates `your-file.pdf` in the current directory.
 ## Requirements
 
 - `pandoc` and `wkhtmltopdf` (auto-installed by the script on macOS or Linux)
-
-## Example Output
-
-![Example output screenshot placeholder](docs/example-output.png)
 
 ## License
 
